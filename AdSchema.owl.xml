@@ -1,0 +1,1311 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.adschema.org/adschema#"
+     xml:base="http://www.adschema.org/adschema"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.adschema.org/adschema#"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.adschema.org/adschema#adproduct -->
+
+    <owl:ObjectProperty rdf:about="http://www.adschema.org/adschema#adproduct">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">adproduct</rdfs:label>
+        <rdfs:range rdf:resource="http://www.adschema.org/adschema#AdProduct"/>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdUnit"/>
+        <owl:propertyDisjointWith rdf:resource="http://www.adschema.org/adschema#adunit"/>
+        <owl:inverseOf rdf:resource="http://www.adschema.org/adschema#adunit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#adunit -->
+
+    <owl:ObjectProperty rdf:about="http://www.adschema.org/adschema#adunit">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">adunit</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdProduct"/>
+        <rdfs:range rdf:resource="http://www.adschema.org/adschema#AdUnit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#bearer -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#bearer">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <owl:inverseOf rdf:resource="http://www.menthor.net/ontouml#intrinsicProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#Mode"/>
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#Quality"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#causedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#causedBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:range rdf:resource="http://www.menthor.net/ontouml#Event"/>
+        <rdfs:domain rdf:resource="http://www.menthor.net/ontouml#Event"/>
+        <owl:inverseOf rdf:resource="http://www.menthor.net/ontouml#causes"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#causes -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#causes">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:range rdf:resource="http://www.menthor.net/ontouml#Event"/>
+        <rdfs:domain rdf:resource="http://www.menthor.net/ontouml#Event"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#collectionPart -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#collectionPart">
+        <rdfs:range rdf:resource="http://www.menthor.net/ontouml#Collection"/>
+        <rdfs:domain rdf:resource="http://www.menthor.net/ontouml#Collection"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#part"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#collectionWhole -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#collectionWhole">
+        <rdfs:domain rdf:resource="http://www.menthor.net/ontouml#Collection"/>
+        <rdfs:range rdf:resource="http://www.menthor.net/ontouml#Collection"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#whole"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#contains -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#contains">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#temporal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#during -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#during">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+        <owl:inverseOf rdf:resource="http://www.menthor.net/ontouml#contains"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#temporal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#equalTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#equalTo">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#temporal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#eventPart -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#eventPart">
+        <rdfs:domain rdf:resource="http://www.menthor.net/ontouml#Event"/>
+        <rdfs:range rdf:resource="http://www.menthor.net/ontouml#Event"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#part"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#eventWhole -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#eventWhole">
+        <rdfs:domain rdf:resource="http://www.menthor.net/ontouml#Event"/>
+        <rdfs:range rdf:resource="http://www.menthor.net/ontouml#Event"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#whole"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#finishedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#finishedBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+        <owl:inverseOf rdf:resource="http://www.menthor.net/ontouml#finishes"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#temporal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#finishes -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#finishes">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#temporal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#functionalPart -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#functionalPart">
+        <rdfs:domain rdf:resource="http://www.menthor.net/ontouml#FunctionalComplex"/>
+        <rdfs:range rdf:resource="http://www.menthor.net/ontouml#FunctionalComplex"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#part"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#functionalWhole -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#functionalWhole">
+        <rdfs:range rdf:resource="http://www.menthor.net/ontouml#FunctionalComplex"/>
+        <rdfs:domain rdf:resource="http://www.menthor.net/ontouml#FunctionalComplex"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#whole"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#intrinsicProperty -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#intrinsicProperty">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#Mode"/>
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#Quality"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#isMemberOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#isMemberOf">
+        <rdfs:range rdf:resource="http://www.menthor.net/ontouml#Collection"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#whole"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#Collection"/>
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#FunctionalComplex"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#mediatedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#mediatedBy">
+        <rdfs:range rdf:resource="http://www.menthor.net/ontouml#Relator"/>
+        <owl:inverseOf rdf:resource="http://www.menthor.net/ontouml#mediates"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#Object"/>
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#Relator"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#mediates -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#mediates">
+        <rdfs:domain rdf:resource="http://www.menthor.net/ontouml#Relator"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#Object"/>
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#Relator"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#meets -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#meets">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#temporal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#member -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#member">
+        <rdfs:domain rdf:resource="http://www.menthor.net/ontouml#Collection"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#part"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#Collection"/>
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#FunctionalComplex"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#metBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#metBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <owl:inverseOf rdf:resource="http://www.menthor.net/ontouml#meets"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#temporal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#overlaps -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#overlaps">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#temporal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#part -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#part">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <owl:inverseOf rdf:resource="http://www.menthor.net/ontouml#whole"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#participant -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#participant">
+        <rdfs:domain rdf:resource="http://www.menthor.net/ontouml#Event"/>
+        <rdfs:range rdf:resource="http://www.menthor.net/ontouml#Object"/>
+        <owl:inverseOf rdf:resource="http://www.menthor.net/ontouml#participatesIn"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#participatesIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#participatesIn">
+        <rdfs:range rdf:resource="http://www.menthor.net/ontouml#Event"/>
+        <rdfs:domain rdf:resource="http://www.menthor.net/ontouml#Object"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#precededBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#precededBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#temporal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#preceds -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#preceds">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <owl:inverseOf rdf:resource="http://www.menthor.net/ontouml#precededBy"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#temporal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#quantityPart -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#quantityPart">
+        <rdfs:range rdf:resource="http://www.menthor.net/ontouml#Quantity"/>
+        <rdfs:domain rdf:resource="http://www.menthor.net/ontouml#Quantity"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#part"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#quantityWhole -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#quantityWhole">
+        <rdfs:domain rdf:resource="http://www.menthor.net/ontouml#Quantity"/>
+        <rdfs:range rdf:resource="http://www.menthor.net/ontouml#Quantity"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#whole"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#startedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#startedBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+        <owl:inverseOf rdf:resource="http://www.menthor.net/ontouml#starts"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#temporal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#starts -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#starts">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#temporal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#temporal -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#temporal">
+        <rdfs:domain rdf:resource="http://www.menthor.net/ontouml#Event"/>
+        <rdfs:range rdf:resource="http://www.menthor.net/ontouml#Event"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#whole -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#whole">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdProductActiveDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdProductActiveDate">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdProductActiveDate</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdProduct"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdProductAuthorized -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdProductAuthorized">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdProductAuthorized</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdProduct"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdProductCertificationAuthorityID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdProductCertificationAuthorityID">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdProductCertificationAuthorityID</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdProduct"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdProductCurrency -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdProductCurrency">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdProductCurrency</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdProduct"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdProductDomain -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdProductDomain">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdProductDomain</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdProduct"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdProductID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdProductID">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdProductID</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdProduct"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdProductIcon -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdProductIcon">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdProductIcon</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdProduct"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdProductInventryType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdProductInventryType">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdProductInventryType</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdProduct"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdProductLanguage -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdProductLanguage">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdProductLanguage</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdProduct"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdProductLeadTime -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdProductLeadTime">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdProductLeadTime</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdProduct"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdProductMinSpend -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdProductMinSpend">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdProductMinSpend</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdProduct"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdProductName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdProductName">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdProductName</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdProduct"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdProductPath -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdProductPath">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdProductPath</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdProduct"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdProductPubliserID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdProductPubliserID">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdProductPubliserID</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdProduct"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdProductPublisher -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdProductPublisher">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdProductPublisher</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdProduct"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdProductRateType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdProductRateType">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdProductRateType</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdProduct"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdProductResellers -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdProductResellers">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdProductResellers</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdProduct"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdProductRetirementDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdProductRetirementDate">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdProductRetirementDate</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdProduct"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdProductTimeZone -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdProductTimeZone">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdProductTimeZone</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdProduct"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdUnit2ProductID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdUnit2ProductID">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdUnit2ProductID</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdUnit"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdUnitActiveDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdUnitActiveDate">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdUnitActiveDate</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdUnit"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdUnitConsentRequired -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdUnitConsentRequired">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdUnitConsentRequired</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdUnit"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdUnitConsumer -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdUnitConsumer">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdUnitConsumer</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdUnit"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdUnitDeliverytype -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdUnitDeliverytype">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdUnitDeliverytype</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdUnit"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdUnitEstimatedDailyAvails -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdUnitEstimatedDailyAvails">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdUnitEstimatedDailyAvails</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdUnit"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdUnitFortmatType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdUnitFortmatType">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdUnitFortmatType</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdUnit"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdUnitID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdUnitID">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdUnitID</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdUnit"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdUnitLevel -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdUnitLevel">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdUnitLevel</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdUnit"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdUnitMaxduration -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdUnitMaxduration">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdUnitMaxduration</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdUnit"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdUnitMinDuration -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdUnitMinDuration">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdUnitMinDuration</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdUnit"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdUnitMinPriceExpected -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdUnitMinPriceExpected">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdUnitMinPriceExpected</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdUnit"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdUnitName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdUnitName">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdUnitName</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdUnit"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdUnitPath -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdUnitPath">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdUnitPath</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdUnit"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdUnitPosition -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdUnitPosition">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdUnitPosition</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdUnit"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdUnitRateTireExpected -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdUnitRateTireExpected">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdUnitRateTireExpected</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdUnit"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdUnitRetirementDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdUnitRetirementDate">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdUnitRetirementDate</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdUnit"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdUnitTargetType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.adschema.org/adschema#AdUnitTargetType">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdUnitTargetType</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.adschema.org/adschema#AdUnit"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdProduct -->
+
+    <owl:Class rdf:about="http://www.adschema.org/adschema#AdProduct">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdProduct</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#adunit"/>
+                        <owl:onClass rdf:resource="http://www.adschema.org/adschema#AdUnit"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdProductResellers"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdProductActiveDate"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdProductAuthorized"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdProductCertificationAuthorityID"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdProductCurrency"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdProductDomain"/>
+                        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdProductID"/>
+                        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdProductIcon"/>
+                        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdProductInventryType"/>
+                        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdProductLanguage"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdProductLeadTime"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdProductMinSpend"/>
+                        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdProductName"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdProductPath"/>
+                        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdProductPubliserID"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdProductPublisher"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdProductRateType"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdProductRetirementDate"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdProductTimeZone"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.adschema.org/adschema#AdUnit -->
+
+    <owl:Class rdf:about="http://www.adschema.org/adschema#AdUnit">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AdUnit</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#adproduct"/>
+                        <owl:onClass rdf:resource="http://www.adschema.org/adschema#AdProduct"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdUnitTargetType"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdUnit2ProductID"/>
+                        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdUnitActiveDate"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdUnitConsentRequired"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdUnitConsumer"/>
+                        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdUnitDeliverytype"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdUnitEstimatedDailyAvails"/>
+                        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdUnitFortmatType"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdUnitID"/>
+                        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdUnitLevel"/>
+                        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdUnitMaxduration"/>
+                        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdUnitMinDuration"/>
+                        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdUnitMinPriceExpected"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdUnitName"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdUnitPath"/>
+                        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdUnitPosition"/>
+                        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdUnitRateTireExpected"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.adschema.org/adschema#AdUnitRetirementDate"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#Collection -->
+
+    <owl:Class rdf:about="http://www.menthor.net/ontouml#Collection">
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#Event -->
+
+    <owl:Class rdf:about="http://www.menthor.net/ontouml#Event"/>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#FunctionalComplex -->
+
+    <owl:Class rdf:about="http://www.menthor.net/ontouml#FunctionalComplex">
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#Mode -->
+
+    <owl:Class rdf:about="http://www.menthor.net/ontouml#Mode">
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#Moment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#Moment -->
+
+    <owl:Class rdf:about="http://www.menthor.net/ontouml#Moment"/>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#Object -->
+
+    <owl:Class rdf:about="http://www.menthor.net/ontouml#Object"/>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#Quality -->
+
+    <owl:Class rdf:about="http://www.menthor.net/ontouml#Quality">
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#Moment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#Quantity -->
+
+    <owl:Class rdf:about="http://www.menthor.net/ontouml#Quantity">
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#Relator -->
+
+    <owl:Class rdf:about="http://www.menthor.net/ontouml#Relator">
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#Moment"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.menthor.net/ontouml#Event"/>
+            <rdf:Description rdf:about="http://www.menthor.net/ontouml#Moment"/>
+            <rdf:Description rdf:about="http://www.menthor.net/ontouml#Object"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.menthor.net/ontouml#Mode"/>
+            <rdf:Description rdf:about="http://www.menthor.net/ontouml#Quality"/>
+            <rdf:Description rdf:about="http://www.menthor.net/ontouml#Relator"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.menthor.net/ontouml#Collection"/>
+            <rdf:Description rdf:about="http://www.menthor.net/ontouml#FunctionalComplex"/>
+            <rdf:Description rdf:about="http://www.menthor.net/ontouml#Quantity"/>
+        </owl:members>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="urn:swrl#y">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl#x">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl#z">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.menthor.net/ontouml#collectionPart"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#y"/>
+                        <swrl:argument1 rdf:resource="urn:swrl#z"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DifferentIndividualsAtom"/>
+                                                        <swrl:argument1 rdf:resource="urn:swrl#y"/>
+                                                        <swrl:argument2 rdf:resource="urn:swrl#z"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DifferentIndividualsAtom"/>
+                                                <swrl:argument1 rdf:resource="urn:swrl#x"/>
+                                                <swrl:argument2 rdf:resource="urn:swrl#z"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                    </rdf:Description>
+                                </rdf:rest>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DifferentIndividualsAtom"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl#x"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl#y"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                            </rdf:Description>
+                        </rdf:rest>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.menthor.net/ontouml#member"/>
+                                <swrl:argument2 rdf:resource="urn:swrl#x"/>
+                                <swrl:argument1 rdf:resource="urn:swrl#y"/>
+                            </rdf:Description>
+                        </rdf:first>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.menthor.net/ontouml#collectionPart"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#x"/>
+                        <swrl:argument1 rdf:resource="urn:swrl#z"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DifferentIndividualsAtom"/>
+                                                <swrl:argument1 rdf:resource="urn:swrl#x"/>
+                                                <swrl:argument2 rdf:resource="urn:swrl#z"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DifferentIndividualsAtom"/>
+                                                        <swrl:argument1 rdf:resource="urn:swrl#y"/>
+                                                        <swrl:argument2 rdf:resource="urn:swrl#z"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DifferentIndividualsAtom"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl#x"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl#y"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                            </rdf:Description>
+                        </rdf:rest>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.menthor.net/ontouml#functionalPart"/>
+                                <swrl:argument2 rdf:resource="urn:swrl#y"/>
+                                <swrl:argument1 rdf:resource="urn:swrl#z"/>
+                            </rdf:Description>
+                        </rdf:first>
+                    </rdf:Description>
+                </rdf:rest>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.menthor.net/ontouml#functionalPart"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#x"/>
+                        <swrl:argument1 rdf:resource="urn:swrl#y"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.menthor.net/ontouml#functionalPart"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#x"/>
+                        <swrl:argument1 rdf:resource="urn:swrl#z"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.4) http://owlapi.sourceforge.net -->
+
